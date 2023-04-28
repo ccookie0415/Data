@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<button onclick="history.back()">
+  뒤로가기
+</button>
+<img
+class="modal__poster-img col-6"
+src={{ movie.poster_path }}
+alt="modal__poster-img"
+/>
+  <p class="modal__details ">
+    <p>개봉일 : {{movie.release_date}}</p>
+    <p>관객수 : {{movie.popularity}}</p>
+    <p>장르 : {% for genre in genres %}{{genre.name}}{% endfor %}</p>
+  </p>
+
+  <h2 class="modal__title">{{movie.title}}</h2>
+  <p class="modal__overview"> 평점: {{movie.vote_average}}</p>
+  <p class="modal__overview"> {{movie.overview}}</p>
+
+
+{% endblock %}
